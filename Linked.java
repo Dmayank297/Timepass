@@ -1,14 +1,26 @@
+import java.util.LinkedList;
+import java.util.Scanner;
 
 public class Linked {
     Node head;
+    private int size;
+
+    Linked() {
+        this.size = 0;
+    }
 
     class Node {
         String data;
+        int data2;
         Node next;
-
+        
+        Node(int data) {
+            this.data2 = data;
+        }
         Node(String data) {
             this.data = data;
             this.next = null;
+            size++;
         }
     }
 
@@ -57,7 +69,7 @@ public class Linked {
             System.out.println("Nothing to delete");
             return;
         }
-        
+        size--;
         head = head.next;
     }
 
@@ -68,7 +80,7 @@ public class Linked {
             System.out.println("NOthing to delete");
             return;
         }
-
+        size--;
         if(head.next == null) {
             head = null;
             return;
@@ -83,20 +95,17 @@ public class Linked {
 
     }
 
+    public int getSize() {
+        return this.size;
+    }
+
     public static void main(String[] args) {
-        Linked list = new Linked();
-        list.addFirst("first");
-        list.addFirst("this");
-        list.printList();
+        LinkedList<Integer> list = new LinkedList<>();
+        Scanner sc = new Scanner(System.in);
+        
+        int[] arr = {1, 5, 6, 65,43,54,32,64,67,432,876,445,346,547,547,56,7865,756};
 
-        list.addLast("time");
-        list.addLast("trying");
-        list.printList();
-
-        list.deleteFirst();
-        list.printList();
-
-        list.deleteLast();
-        list.printList();
+        
+        
     }
 }
